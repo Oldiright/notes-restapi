@@ -46,4 +46,8 @@ public class NoteService {
     public boolean validate(Note note) {
         return note.getTitle().length() <= MAX_TITLE_LENGTH && note.getContent().length() <= MAX_CONTENT_LENGTH;
     }
+
+    public List<Note> getAll() {
+        return repository.findAll();
+    }
 }
