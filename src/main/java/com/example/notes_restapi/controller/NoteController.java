@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -25,6 +26,7 @@ public class NoteController {
 
 
     @PostMapping
+    @ResponseBody
     public ResponseEntity<Note> create(@RequestBody Note note) {
 
         if (noteService.validate(note)) {
@@ -34,6 +36,7 @@ public class NoteController {
     }
 
     @GetMapping("/{id}")
+    @ResponseBody
     public ResponseEntity<NoteResponse> findById(@PathVariable long id) {
         Note note = noteService.getById(id);
         if(note != null) {
@@ -45,6 +48,7 @@ public class NoteController {
     }
 
     @PutMapping("/{id}")
+    @ResponseBody
     public ResponseEntity<Note> update(@RequestBody Note note, @PathVariable long id) {
         if(noteService.validate(note)) {
             return new ResponseEntity<>(noteService.updateById(note, id), HttpStatus.ACCEPTED);
@@ -54,7 +58,7 @@ public class NoteController {
     }
 
     @DeleteMapping("/{id}")
-
+    @ResponseBody
     public ResponseEntity<Void> delete(@PathVariable long id) {
 
        try {
