@@ -1,11 +1,9 @@
 package com.example.notes_restapi.service;
-
 import com.example.notes_restapi.entity.Note;
 import com.example.notes_restapi.entity.NoteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -18,9 +16,7 @@ public class NoteService {
     private static final int MAX_CONTENT_LENGTH = 1000;
 
 
-    public List<Note> listAll() {
-        return repository.findAll();
-    }
+
 
     public Note create(Note note) {
       return repository.save(note);
