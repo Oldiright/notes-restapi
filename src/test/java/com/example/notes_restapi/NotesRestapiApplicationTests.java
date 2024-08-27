@@ -8,6 +8,7 @@ class NotesRestapiApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("hi");
 	}
 
 }
